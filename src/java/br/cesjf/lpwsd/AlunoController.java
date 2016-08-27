@@ -18,15 +18,18 @@ public class AlunoController extends HttpServlet {
             
         Aluno aluno = new Aluno(); 
         
-        aluno.setNome(request.getParameter("nome"));
-        aluno.setEndereco(request.getParameter("endereco"));
-        aluno.setEmail(request.getParameter("email"));
-        
-        if (request.getParameter("sexo").equals("1")) {
-            aluno.setSexo("Feminino");
-        } else {
-            aluno.setSexo("Masculino");
+        if (request.getParameter("nota")!=null) {
+            aluno.setNome(request.getParameter("nome"));
+            String nome = aluno.getNome();
+            int nota = 0;
+            /*select nota from aluno where nome = nome;*/
+            int notaAtribuida = Integer.parseInt(request.getParameter("nota"));
+            nota += notaAtribuida;
+            /*update into aluno set nota = nota;*/
         }
+        
+        aluno.setNome(request.getParameter("nome"));
+        aluno.setGrupo(request.getParameter("grupo"));
         
         request.setAttribute("aluno", aluno);
         request.getRequestDispatcher("/WEB-INF/detalhes-aluno.jsp").forward(request, response);
