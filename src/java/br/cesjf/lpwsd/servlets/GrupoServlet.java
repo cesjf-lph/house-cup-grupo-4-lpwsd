@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.cesjf.lpwsd;
+package br.cesjf.lpwsd.servlets;
 
+import br.cesjf.lpwsd.Aluno;
 import br.cesjf.lpwsd.dao.AlunoJpaController;
 import br.cesjf.lpwsd.dao.ProfessorJpaController;
 import java.io.IOException;

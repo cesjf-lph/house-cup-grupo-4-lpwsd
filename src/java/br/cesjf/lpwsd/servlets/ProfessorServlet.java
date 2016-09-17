@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.cesjf.lpwsd;
+package br.cesjf.lpwsd.servlets;
 
+import br.cesjf.lpwsd.Professor;
 import br.cesjf.lpwsd.dao.ProfessorJpaController;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class ProfessorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/novo-professor.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/novo-professor.jsp").forward(request, response);
     }
 
     @Override

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.cesjf.lpwsd;
+package br.cesjf.lpwsd.servlets;
 
+import br.cesjf.lpwsd.Aluno;
 import br.cesjf.lpwsd.dao.AlunoJpaController;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class AlunoServlet extends HttpServlet {
         daoaluno.findAlunoEntities();
                 
         request.setAttribute("aluno", aluno);
-        request.getRequestDispatcher("/novo-aluno.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/novo-aluno.jsp").forward(request, response);
     }
 
 }
