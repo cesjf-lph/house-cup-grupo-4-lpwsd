@@ -35,14 +35,14 @@ public class ProfessorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        request.getRequestDispatcher("/novo-professor.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Professor professor = new Professor();
-        professor.setNome(request.getParameter("nome"));
+        professor.setNome(request.getParameter("nome_professor"));
         ProfessorJpaController daoProfessor = new ProfessorJpaController(ut, emf);
         try {
             daoProfessor.create(professor);
@@ -53,9 +53,9 @@ public class ProfessorServlet extends HttpServlet {
         }
         
         //daoProfessor.findProfessorEntities();
-                
-        request.setAttribute("professor", professor);
-        request.getRequestDispatcher("/novo-professor.jsp").forward(request, response);
+          response.sendRedirect(".");
+        //request.setAttribute("professor", professor);
+       // request.getRequestDispatcher("/novo-professor.jsp").forward(request, response);
     }
 
 }

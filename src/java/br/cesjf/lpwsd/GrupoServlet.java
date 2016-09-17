@@ -37,15 +37,18 @@ public class GrupoServlet extends HttpServlet {
         AlunoJpaController daoAluno = new AlunoJpaController(ut, emf);
         ProfessorJpaController daoProfessor = new ProfessorJpaController(ut, emf);
         List<Aluno> alunos = daoAluno.findAlunoEntities();
-        List<Professor> professores = daoProfessor.findProfessorEntities();
+        //List<Professor> professores = daoProfessor.findProfessorEntities();
         request.setAttribute("alunos", alunos);
-        request.setAttribute("professores",professores);
-        request.getRequestDispatcher("/WEB-INF/alunos.jsp").forward(request, response);
+        //request.setAttribute("professores",professores);
+        request.getRequestDispatcher("/WEB-INF/lancar-nota.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        AlunoJpaController daoAluno = new AlunoJpaController(ut, emf);
+        Long id = Long.parseLong(request.getParameter("nome"));
+        daoAluno.findAluno(id);
     }
 
 }

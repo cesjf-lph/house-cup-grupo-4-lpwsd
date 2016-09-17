@@ -3,9 +3,10 @@
   <persistence-unit name="ExercicioLPWSD01PU" transaction-type="JTA">
     <jta-data-source>jdbc/sample</jta-data-source>
     <class>br.cesjf.lpwsd.Aluno</class>
+    <class>br.cesjf.lpwsd.Professor</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>

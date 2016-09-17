@@ -6,12 +6,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Cadastrar alunos</h1>
+        <h1>Cadastrar professores</h1>
         <table>
             <form action="ProfessorServlet" method="post">
                 <tr>
                     <td>Nome </td>
-                    <td><input type="text" name="nome" /></td>
+                    <td><input type="text" name="nome_professor" /></td>
                 </tr>  
                 <tr>
                     <td><button type="submit">Enviar</button> </td>

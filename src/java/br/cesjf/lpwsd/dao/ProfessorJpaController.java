@@ -5,10 +5,8 @@
  */
 package br.cesjf.lpwsd.dao;
 
-
 import br.cesjf.lpwsd.Professor;
 import br.cesjf.lpwsd.dao.exceptions.NonexistentEntityException;
-import br.cesjf.lpwsd.dao.exceptions.PreexistingEntityException;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
 import java.io.Serializable;
 import java.util.List;
@@ -37,7 +35,7 @@ public class ProfessorJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Professor professor) throws PreexistingEntityException, RollbackFailureException, Exception {
+    public void create(Professor professor) throws RollbackFailureException, Exception {
         EntityManager em = null;
         try {
             utx.begin();
@@ -49,9 +47,6 @@ public class ProfessorJpaController implements Serializable {
                 utx.rollback();
             } catch (Exception re) {
                 throw new RollbackFailureException("An error occurred attempting to roll back the transaction.", re);
-            }
-            if (findProfessor(professor.getId()) != null) {
-                throw new PreexistingEntityException("Professor " + professor + " already exists.", ex);
             }
             throw ex;
         } finally {
@@ -78,7 +73,7 @@ public class ProfessorJpaController implements Serializable {
             if (msg == null || msg.length() == 0) {
                 Long id = professor.getId();
                 if (findProfessor(id) == null) {
-                    throw new NonexistentEntityException("The aluno with id " + id + " no longer exists.");
+                    throw new NonexistentEntityException("The professor with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -99,7 +94,7 @@ public class ProfessorJpaController implements Serializable {
                 professor = em.getReference(Professor.class, id);
                 professor.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The aluno with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The professor with id " + id + " no longer exists.", enfe);
             }
             em.remove(professor);
             utx.commit();

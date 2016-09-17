@@ -31,5 +31,7 @@
                 
             </form>
         </table>
+        
+        <a href="GrupoServlet">Lançar nota</a>
     </body>
 </html>

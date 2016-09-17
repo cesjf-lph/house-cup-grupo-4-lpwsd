@@ -56,7 +56,7 @@ public class AlunoServlet extends HttpServlet {
         daoaluno.findAlunoEntities();
                 
         request.setAttribute("aluno", aluno);
-        request.getRequestDispatcher("/detalhes-aluno.jsp").forward(request, response);
+        request.getRequestDispatcher("/novo-aluno.jsp").forward(request, response);
     }
 
 }
