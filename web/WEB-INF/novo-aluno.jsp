@@ -32,6 +32,6 @@
             </form>
         </table>
         
-        <a href="GrupoServlet">Lançar nota</a>
+        <a href="OcorrenciaServlet">Lançar nota</a>
     </body>
 </html>

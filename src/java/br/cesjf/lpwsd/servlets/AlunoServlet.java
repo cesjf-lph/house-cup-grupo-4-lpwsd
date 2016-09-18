@@ -36,7 +36,7 @@ public class AlunoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        request.getRequestDispatcher("/WEB-INF/novo-aluno.jsp").forward(request, response);
     }
 
     @Override
@@ -54,10 +54,10 @@ public class AlunoServlet extends HttpServlet {
             Logger.getLogger(AlunoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        daoaluno.findAlunoEntities();
-                
-        request.setAttribute("aluno", aluno);
-        request.getRequestDispatcher("/WEB-INF/novo-aluno.jsp").forward(request, response);
+        //daoAluno.findAlunoEntities();
+          response.sendRedirect(".");
+        //request.setAttribute("aluno", aluno);
+       // request.getRequestDispatcher("/novo-aluno.jsp").forward(request, response);
     }
 
 }

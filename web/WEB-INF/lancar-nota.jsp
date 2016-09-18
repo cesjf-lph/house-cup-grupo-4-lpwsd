@@ -7,16 +7,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="GrupoServlet" method="post">
+        <form action="OcorrenciaServlet" method="post">
             Aluno: 
-            <select name="nome">            
+            <select name="aluno">            
                 <c:forEach var="aluno" items="${alunos}">
                     <option value="${aluno.id}">${aluno.nome} - Grupo: ${aluno.grupo}</option>
                 </c:forEach>
             </select>
             Professor:
             <select name="professor">
-                <c:forEach var="aluno" items="${professores}">
+                <c:forEach var="professor" items="${professores}">
                     <option value="${professor.id}">${professor.nome}</option>
 
                 </c:forEach>
