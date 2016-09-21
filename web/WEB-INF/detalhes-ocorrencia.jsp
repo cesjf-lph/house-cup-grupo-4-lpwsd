@@ -13,13 +13,13 @@
     </head>
     <body>
         <p>
-            <h1>Detalhes do Aluno: </h1>
-            <h2>Aluno: ${ocorrencia.aluno}</h2>
-            <h2>Professor: ${ocorrencia.professor}</h2>
+            <h1>Detalhes da Ocorrencia: </h1>
+            <h2>Aluno: ${ocorrencia.aluno.nome}</h2>
+            <h2>Professor: ${ocorrencia.professor.nome}</h2>
             <h2>Pontos: ${ocorrencia.pontos}</h2>
             <h2>Motivo: ${ocorrencia.motivo}</h2>
-            <h2>Data: ${ocorrencia.data}</h2>
             
         </p>
+        <a href="OcorrenciaServlet">Nova ocorrência</a>
     </body>
 </html>
