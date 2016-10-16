@@ -3,9 +3,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastrar Professor:</title>
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
+    <center>
+        <div id="pagina">
         <h1>Cadastrar professores</h1>
         <table>
             <form action="ProfessorServlet" method="post">
@@ -20,5 +23,8 @@
                 
             </form>
         </table>
+        <a href="index.html">Página Principal</a>
+        </div>
+    </center>
     </body>
 </html>

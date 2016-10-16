@@ -115,7 +115,7 @@ public class OcorrenciaJpaController implements Serializable {
     public List<Ocorrencia> findOcorrenciaEntities() {
         return findOcorrenciaEntities(true, -1, -1);
     }
-
+    
     public List<Ocorrencia> findOcorrenciaEntities(int maxResults, int firstResult) {
         return findOcorrenciaEntities(false, maxResults, firstResult);
     }
@@ -152,6 +152,15 @@ public class OcorrenciaJpaController implements Serializable {
             Root<Ocorrencia> rt = cq.from(Ocorrencia.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    public int getOcorrenciaCount2() {
+        EntityManager em = getEntityManager();
+        try {            
+            Query q = em.createQuery("SELECT COUNT(o) FROM Ocorrencia AS o");
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();

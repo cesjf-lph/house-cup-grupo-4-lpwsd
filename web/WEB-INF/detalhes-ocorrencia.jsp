@@ -9,9 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Detalhes da Ocorrência</title>
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
+    <center>
+        <div id="pagina">
         <p>
             <h1>Detalhes da Ocorrencia: </h1>
             <h2>Aluno: ${ocorrencia.aluno.nome}</h2>
@@ -21,5 +24,8 @@
             
         </p>
         <a href="OcorrenciaServlet">Nova ocorrência</a>
+        <a href="index.html">Página Principal</a>
+        </div>
+    </center>
     </body>
 </html>

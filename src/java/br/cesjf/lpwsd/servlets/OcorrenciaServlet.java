@@ -45,7 +45,7 @@ public class OcorrenciaServlet extends HttpServlet {
         List<Professor> professores = daoProfessor.findProfessorEntities();
         request.setAttribute("professores", professores);
         
-        request.getRequestDispatcher("/WEB-INF/lancar-nota.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/lancar-ocorrencia.jsp").forward(request, response);
     }
     
     @Override

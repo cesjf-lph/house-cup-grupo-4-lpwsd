@@ -13,4 +13,14 @@ html,body {
     background: white;
     border-radius: 15px;
     padding: 15px;
+    font-family: "Century Gothic",Tahoma,Times;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: bolder;
 }

@@ -23,6 +23,7 @@ public class Ocorrencia  implements Serializable {
 
     public Ocorrencia() {
         this.data = new Date();
+        
     }
 
     

@@ -4,9 +4,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Lançar ocorrência</title>
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
+    <center>
+        <div id="pagina">
+        <h1>Lançar uma nova ocorrência:</h1>
         <form action="OcorrenciaServlet" method="post">
             Aluno: 
             <select name="aluno">            
@@ -26,5 +30,9 @@
             <button type="submit">Lançar</button>
             <button type="reset">Limpar</button>
         </form>
+        <br />
+        <a href="index.html">Página Principal</a>
+        </div>
+    </center>
     </body>
 </html>

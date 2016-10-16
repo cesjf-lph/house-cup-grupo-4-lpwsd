@@ -1,3 +1,9 @@
+<%-- 
+    Document   : conta-ocorrencia
+    Created on : 20/09/2016, 21:57:23
+    Author     : aluno
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,9 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            
-        %>
-    </body>
+        <h1>Hello World!</h1>
     </body>
 </html>

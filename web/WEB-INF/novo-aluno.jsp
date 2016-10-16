@@ -3,9 +3,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastrar Aluno: </title>
+        <link rel="stylesheet" href="estilo.css" />
     </head>
     <body>
+    <center>
+        <div id="pagina">
         <h1>Cadastrar alunos</h1>
         <table>
             <form action="AlunoServlet" method="post">
@@ -32,6 +35,9 @@
             </form>
         </table>
         
-        <a href="OcorrenciaServlet">Lançar nota</a>
+        <a href="OcorrenciaServlet">Lançar ocorrência</a>
+        <a href="index.html">Página Principal</a>
+        </div>
+    </center>
     </body>
 </html>
