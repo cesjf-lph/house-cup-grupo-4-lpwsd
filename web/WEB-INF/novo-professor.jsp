@@ -22,7 +22,7 @@
                 </tr>  
                 
             </form>
-        </table>
+        </table><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>

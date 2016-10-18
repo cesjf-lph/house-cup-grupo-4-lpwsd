@@ -51,5 +51,28 @@ public class BuscaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
+        Long id_aluno = Long.parseLong(request.getParameter("filtro"));
+        
+        AlunoJpaController daoAluno = new AlunoJpaController(ut, emf);
+        Aluno aluno = daoAluno.findAluno(id_aluno);
+        request.setAttribute("aluno", aluno);
+        List<Aluno> alunos = daoAluno.findAlunoEntities();
+        request.setAttribute("alunos", alunos);
+                
+                
+        OcorrenciaJpaController daoOcorrencia = new OcorrenciaJpaController(ut, emf);
+        List<Ocorrencia> ocorrencias = daoOcorrencia.findOcorrenciaEntitiesByAluno(aluno);
+        request.setAttribute("ocorrencias", ocorrencias);
+        
+        ProfessorJpaController daoProfessor = new ProfessorJpaController(ut, emf);
+        List<Professor> professores = daoProfessor.findProfessorEntities();
+        request.setAttribute("professores", professores);
+        
+        Aluno aluno_filtrado = daoAluno.findAluno(id_aluno);
+        request.setAttribute("aluno_filtrado",aluno_filtrado);
+        
+        request.getRequestDispatcher("/WEB-INF/busca-ocorrencia.jsp").forward(request, response);
     }
 }
+

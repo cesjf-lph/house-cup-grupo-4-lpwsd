@@ -18,21 +18,41 @@
         <div id="pagina">
         <h1>Ocorrências: </h1>
         
-        <form action="BuscaServlet">
-            
+        <form action="BuscaServlet" method="post">
+            Filtrar por aluno:
             <select name="filtro">
                 <c:forEach var="aluno" items="${alunos}">
-                    <option>${aluno.nome}</option>
+                    <option value="${aluno.id}">${aluno.nome}</option>
                 </c:forEach>
             </select>
             
+            <button type="submit">Filtrar por aluno</button><br /><br />
+        </form>
+            
+            Filtrar por professor:
             <select name="filtro">
                 <c:forEach var="professor" items="${professores}">
                     <option>${professor.nome}</option>
                 </c:forEach>
             </select>
+            
+            <button type="submit">Filtrar por aluno</button><br /><br />
+            
+            Filtrar por grupo:
+            <select name="filtro">
+                <option value="1">Grupo 1</option>
+                <option value="2">Grupo 2</option>
+                <option value="3">Grupo 3</option>
+                <option value="4">Grupo 4</option>
+            </select>
+            
+            <button type="submit">Filtrar por aluno</button><br /><br />
         </form>
         <br />
+        
+        <h1>${aluno_filtrado.nome}</h1>
+        <h2>${aluno_filtrado.id}</h2>
+        
         <table border="1">
             <tr>
                 <th>Aluno:</th>
@@ -50,7 +70,7 @@
                     <td>${ocorrencia.data}</td>
                 </tr>
             </c:forEach>
-        </table>
+        </table><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>

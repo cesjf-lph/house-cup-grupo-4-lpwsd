@@ -34,8 +34,8 @@
                 
             </form>
         </table>
-        
-        <a href="OcorrenciaServlet">Lançar ocorrência</a>
+        <br /><br />
+        <a href="OcorrenciaServlet">Lançar ocorrência</a><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>

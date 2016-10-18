@@ -5,6 +5,7 @@
  */
 package br.cesjf.lpwsd.dao;
 
+import br.cesjf.lpwsd.Aluno;
 import br.cesjf.lpwsd.Ocorrencia;
 import br.cesjf.lpwsd.dao.exceptions.NonexistentEntityException;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
@@ -135,6 +136,17 @@ public class OcorrenciaJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Ocorrencia> findOcorrenciaEntitiesByAluno(Aluno aluno) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT o FROM Ocorrencia AS o WHERE o.aluno.id =?1");
+            q.setParameter(1, aluno.getId());
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
     public Ocorrencia findOcorrencia(Long id) {
         EntityManager em = getEntityManager();
@@ -157,14 +169,6 @@ public class OcorrenciaJpaController implements Serializable {
             em.close();
         }
     }
-    public int getOcorrenciaCount2() {
-        EntityManager em = getEntityManager();
-        try {            
-            Query q = em.createQuery("SELECT COUNT(o) FROM Ocorrencia AS o");
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
+    
     
 }

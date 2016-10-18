@@ -19,8 +19,8 @@
         <h2>Nome: ${aluno.nome}</h2>
         <h2>Grupo: ${aluno.grupo}</h2>
         <h2>Nota: ${aluno.nota}</h2>
-        
-        <a href="novo-aluno.jsp">Cadastrar outro aluno</a>
+        <br /><br />
+        <a href="novo-aluno.jsp">Cadastrar outro aluno</a><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>

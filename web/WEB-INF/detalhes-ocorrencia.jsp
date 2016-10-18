@@ -22,8 +22,8 @@
             <h2>Pontos: ${ocorrencia.pontos}</h2>
             <h2>Motivo: ${ocorrencia.motivo}</h2>
             
-        </p>
-        <a href="OcorrenciaServlet">Nova ocorrência</a>
+        </p><br /><br />
+        <a href="OcorrenciaServlet">Nova ocorrência</a><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>

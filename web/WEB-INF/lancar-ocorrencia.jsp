@@ -30,7 +30,7 @@
             <button type="submit">Lançar</button>
             <button type="reset">Limpar</button>
         </form>
-        <br />
+        <br /><br />
         <a href="index.html">Página Principal</a>
         </div>
     </center>
