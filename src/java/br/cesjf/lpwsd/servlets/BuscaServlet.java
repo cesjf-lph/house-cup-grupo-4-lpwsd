@@ -52,7 +52,7 @@ public class BuscaServlet extends HttpServlet {
             throws ServletException, IOException {
         
         
-        Long id_aluno = Long.parseLong(request.getParameter("filtro"));
+        Long id_aluno = Long.parseLong(request.getParameter("filtro_aluno"));
         
         AlunoJpaController daoAluno = new AlunoJpaController(ut, emf);
         Aluno aluno = daoAluno.findAluno(id_aluno);

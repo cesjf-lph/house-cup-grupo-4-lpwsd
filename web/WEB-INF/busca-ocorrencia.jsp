@@ -20,7 +20,7 @@
         
         <form action="BuscaServlet" method="post">
             Filtrar por aluno:
-            <select name="filtro">
+            <select name="filtro_aluno">
                 <c:forEach var="aluno" items="${alunos}">
                     <option value="${aluno.id}">${aluno.nome}</option>
                 </c:forEach>
@@ -28,18 +28,20 @@
             
             <button type="submit">Filtrar por aluno</button><br /><br />
         </form>
-            
+        
+        <form action="BuscaServlet" method="post">
             Filtrar por professor:
-            <select name="filtro">
+            <select name="filtro_prof">
                 <c:forEach var="professor" items="${professores}">
                     <option>${professor.nome}</option>
                 </c:forEach>
             </select>
             
             <button type="submit">Filtrar por aluno</button><br /><br />
-            
+        </form>
+        <form action="BuscaServlet" method="post">
             Filtrar por grupo:
-            <select name="filtro">
+            <select name="filtro_grupo">
                 <option value="1">Grupo 1</option>
                 <option value="2">Grupo 2</option>
                 <option value="3">Grupo 3</option>
