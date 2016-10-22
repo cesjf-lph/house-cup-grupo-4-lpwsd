@@ -148,7 +148,7 @@ public class AlunoJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public int getAlunoCount() {
         EntityManager em = getEntityManager();
         try {

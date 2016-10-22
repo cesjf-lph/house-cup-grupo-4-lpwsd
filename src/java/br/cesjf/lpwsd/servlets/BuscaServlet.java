@@ -52,26 +52,38 @@ public class BuscaServlet extends HttpServlet {
             throws ServletException, IOException {
         
         
-        Long id_aluno = Long.parseLong(request.getParameter("filtro_aluno"));
-        
         AlunoJpaController daoAluno = new AlunoJpaController(ut, emf);
-        Aluno aluno = daoAluno.findAluno(id_aluno);
-        request.setAttribute("aluno", aluno);
-        List<Aluno> alunos = daoAluno.findAlunoEntities();
-        request.setAttribute("alunos", alunos);
-                
-                
-        OcorrenciaJpaController daoOcorrencia = new OcorrenciaJpaController(ut, emf);
-        List<Ocorrencia> ocorrencias = daoOcorrencia.findOcorrenciaEntitiesByAluno(aluno);
-        request.setAttribute("ocorrencias", ocorrencias);
-        
         ProfessorJpaController daoProfessor = new ProfessorJpaController(ut, emf);
+        OcorrenciaJpaController daoOcorrencia = new OcorrenciaJpaController(ut, emf);
+        
+        if (request.getParameter("filtro_aluno")!=null) {
+            Long id_aluno = Long.parseLong(request.getParameter("filtro_aluno"));
+            Aluno aluno = daoAluno.findAluno(id_aluno);
+            request.setAttribute("aluno", aluno);
+            List<Ocorrencia> ocorrencias = daoOcorrencia.findOcorrenciaEntitiesByAluno(aluno);
+            request.setAttribute("ocorrencias", ocorrencias);
+        }
+        
+        if (request.getParameter("filtro_prof")!=null) {
+            Long id_professor = Long.parseLong(request.getParameter("filtro_prof"));
+            Professor professor = daoProfessor.findProfessor(id_professor);
+            request.setAttribute("professor", professor);
+            List<Ocorrencia> ocorrencias = daoOcorrencia.findOcorrenciaEntitiesByProfessor(professor);
+            request.setAttribute("ocorrencias", ocorrencias);
+        }
+        
+        if (request.getParameter("filtro_grupo")!=null) {
+            Long grupo = Long.parseLong(request.getParameter("filtro_grupo"));
+            
+        }
+        
+        List<Aluno> alunos = daoAluno.findAlunoEntities();
+        request.setAttribute("alunos", alunos);                
+                
+        
         List<Professor> professores = daoProfessor.findProfessorEntities();
         request.setAttribute("professores", professores);
-        
-        Aluno aluno_filtrado = daoAluno.findAluno(id_aluno);
-        request.setAttribute("aluno_filtrado",aluno_filtrado);
-        
+                
         request.getRequestDispatcher("/WEB-INF/busca-ocorrencia.jsp").forward(request, response);
     }
 }

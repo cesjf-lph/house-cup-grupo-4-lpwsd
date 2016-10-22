@@ -1,31 +1,52 @@
-<%-- 
-    Document   : detalhes-ocorrencia
-    Created on : 16/09/2016, 21:44:11
-    Author     : aluno
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Detalhes da OcorrÃªncia</title>
-        <link rel="stylesheet" href="estilo.css" />
+        <meta charset="UTF-8">
+        <title>Detalhes da Ocorrência</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
     </head>
     <body>
-    <center>
+        <center>
         <div id="pagina">
-        <p>
-            <h1>Detalhes da Ocorrencia: </h1>
-            <h2>Aluno: ${ocorrencia.aluno.nome}</h2>
-            <h2>Professor: ${ocorrencia.professor.nome}</h2>
-            <h2>Pontos: ${ocorrencia.pontos}</h2>
-            <h2>Motivo: ${ocorrencia.motivo}</h2>
-            
-        </p><br /><br />
-        <a href="OcorrenciaServlet">Nova ocorrÃªncia</a><br />
-        <a href="index.html">PÃ¡gina Principal</a>
+            <div id="menus">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                </ul>
+                <ul>
+                    <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
+                </ul>
+                <ul>
+                    <li><a href="ProfessorServlet">Cadastro de Professores</a></li>
+                </ul>
+                <ul>
+                    <li><a href="OcorrenciaServlet">Lançar Ocorrência</a></li>
+                </ul>
+                <ul>
+                    <li><a href="BuscaServlet">Buscar Ocorrência</a></li>
+                </ul>
+            </div>
+
+            <!-- Conteudo da PÃ¡gina -->
+            <div id="conteudo">
+                <div id="conteudo_pagina">
+                    <h1>Detalhes da Ocorrencia: </h1>
+                    <h2>Aluno: ${ocorrencia.aluno.nome}</h2>
+                    <h2>Professor: ${ocorrencia.professor.nome}</h2>
+                    <h2>Pontos: ${ocorrencia.pontos}</h2>
+                    <h2>Motivo: ${ocorrencia.motivo}</h2>
+
+                </p><br /><br />
+                <a href="OcorrenciaServlet">Nova ocorrência</a><br />
+                <a href="index.html">Página Principal</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- RodapÃ© da PÃ¡gina -->
+            <div id="rodape">
+                Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e  
+                <a href="je_barbosaa@hotmail.com">Jéssica Barbosa</a><br />
+            </div>
         </div>
-    </center>
+        </center>
     </body>
 </html>

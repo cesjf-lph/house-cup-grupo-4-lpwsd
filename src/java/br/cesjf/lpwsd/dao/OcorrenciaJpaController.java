@@ -7,6 +7,7 @@ package br.cesjf.lpwsd.dao;
 
 import br.cesjf.lpwsd.Aluno;
 import br.cesjf.lpwsd.Ocorrencia;
+import br.cesjf.lpwsd.Professor;
 import br.cesjf.lpwsd.dao.exceptions.NonexistentEntityException;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
 import java.io.Serializable;
@@ -147,6 +148,19 @@ public class OcorrenciaJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Ocorrencia> findOcorrenciaEntitiesByProfessor(Professor professor) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT o FROM Ocorrencia AS o WHERE o.professor.id =?1");
+            q.setParameter(1, professor.getId());
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    
 
     public Ocorrencia findOcorrencia(Long id) {
         EntityManager em = getEntityManager();

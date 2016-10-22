@@ -6,75 +6,112 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Ocorrências</title>
-        <link rel="stylesheet" href="estilo.css" />
+        <meta charset="UTF-8">
+        <title>Busca de Ocorrências</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
     </head>
     <body>
-    <center>
+        <center>
         <div id="pagina">
-        <h1>Ocorrências: </h1>
-        
-        <form action="BuscaServlet" method="post">
-            Filtrar por aluno:
-            <select name="filtro_aluno">
-                <c:forEach var="aluno" items="${alunos}">
-                    <option value="${aluno.id}">${aluno.nome}</option>
-                </c:forEach>
-            </select>
-            
-            <button type="submit">Filtrar por aluno</button><br /><br />
-        </form>
-        
-        <form action="BuscaServlet" method="post">
-            Filtrar por professor:
-            <select name="filtro_prof">
-                <c:forEach var="professor" items="${professores}">
-                    <option>${professor.nome}</option>
-                </c:forEach>
-            </select>
-            
-            <button type="submit">Filtrar por aluno</button><br /><br />
-        </form>
-        <form action="BuscaServlet" method="post">
-            Filtrar por grupo:
-            <select name="filtro_grupo">
-                <option value="1">Grupo 1</option>
-                <option value="2">Grupo 2</option>
-                <option value="3">Grupo 3</option>
-                <option value="4">Grupo 4</option>
-            </select>
-            
-            <button type="submit">Filtrar por aluno</button><br /><br />
-        </form>
-        <br />
-        
-        <h1>${aluno_filtrado.nome}</h1>
-        <h2>${aluno_filtrado.id}</h2>
-        
-        <table border="1">
-            <tr>
-                <th>Aluno:</th>
-                <th>Grupo:</th>
-                <th>Professor:</th>
-                <th>Pontuação: </th>
-                <th>Data: </th>
-            </tr>
-            <c:forEach var="ocorrencia" items="${ocorrencias}">
-                <tr>
-                    <td>${ocorrencia.aluno.nome}</td>
-                    <td>${ocorrencia.aluno.grupo}</td>
-                    <td>${ocorrencia.professor.nome}</td>
-                    <td>${ocorrencia.pontos}</td>
-                    <td>${ocorrencia.data}</td>
-                </tr>
-            </c:forEach>
-        </table><br />
-        <a href="index.html">Página Principal</a>
+            <div id="menus">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                </ul>
+                <ul>
+                    <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
+                </ul>
+                <ul>
+                    <li><a href="ProfessorServlet">Cadastro de Professores</a></li>
+                </ul>
+                <ul>
+                    <li><a href="OcorrenciaServlet">Lançar Ocorrência</a></li>
+                </ul>
+                <ul>
+                    <li><a href="BuscaServlet">Buscar Ocorrência</a></li>
+                </ul>
+            </div>
+
+            <!-- Conteudo da PÃ¡gina -->
+            <div id="conteudo">
+                    <h1>Ocorrências: </h1>
+                    <table>
+                        <tr>
+                            <form action="BuscaServlet" method="post">
+                                <td>Filtrar por aluno:</td>
+                                <td>
+                                    <select name="filtro_aluno">
+                                        <c:forEach var="aluno" items="${alunos}">
+                                            <option value="${aluno.id}">${aluno.nome}</option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                                <td><button type="submit">Filtrar por aluno</button></td>
+                            </form>
+                        </tr>
+                        
+                        <tr>
+                        <form action="BuscaServlet" method="post">
+                            <td>Filtrar por professor:</td>
+                            <td>
+                                <select name="filtro_prof">
+                                    <c:forEach var="professor" items="${professores}">
+                                        <option value="${professor.id}">${professor.nome}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                            <td><button type="submit">Filtrar por professor</button></td>
+                        </form>
+                        </tr>
+                        
+                        <tr>
+                        <form action="BuscaServlet" method="post">
+                            <td>Filtrar por grupo:</td>
+                            <td>
+                                <select name="filtro_grupo">
+                                    <option value="1">Grupo 1</option>
+                                    <option value="2">Grupo 2</option>
+                                    <option value="3">Grupo 3</option>
+                                    <option value="4">Grupo 4</option>
+                                </select>
+                            </td>
+                            <td><button type="submit">Filtrar por grupo</button></td>
+                        </form>
+                        </tr>
+                    </table>
+                    <br />
+
+                    <h1>${aluno_filtrado.nome}</h1>
+
+                    <table border="1">
+                        <tr>
+                            <th>Aluno:</th>
+                            <th>Grupo:</th>
+                            <th>Professor:</th>
+                            <th>Pontuação: </th>
+                            <th>Data: </th>
+                        </tr>
+                        <c:forEach var="ocorrencia" items="${ocorrencias}">
+                            <tr>
+                                <td>${ocorrencia.aluno.nome}</td>
+                                <td>${ocorrencia.aluno.grupo}</td>
+                                <td>${ocorrencia.professor.nome}</td>
+                                <td>${ocorrencia.pontos}</td>
+                                <td>${ocorrencia.data}</td>
+                            </tr>
+                        </c:forEach>
+                    </table><br />
+                    <a href="index.html">Página Principal</a>
+                </div>
+            </div>
+
+            <!-- RodapÃ© da PÃ¡gina -->
+            <div id="rodape">
+                Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e  
+                <a href="mailto:je_barbosaa@hotmail.com">Jéssica Barbosa</a><br />
+            </div>
         </div>
-    </center>
+        </center>
     </body>
 </html>

@@ -1,43 +1,70 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Aluno: </title>
-        <link rel="stylesheet" href="estilo.css" />
+        <meta charset="UTF-8">
+        <title>Cadastro de Alunos</title>
+        <link rel="stylesheet" type="text/css" href="estilo.css" />
     </head>
     <body>
-    <center>
+        <center>
         <div id="pagina">
-        <h1>Cadastrar alunos</h1>
-        <table>
-            <form action="AlunoServlet" method="post">
-                <tr>
-                    <td>Nome </td>
-                    <td><input type="text" name="nome" /></td>
-                </tr>                
-                <tr>
-                    <td>Grupo </td>
-                    <td>
-                        <select name="grupo">
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Enviar</button> </td>
-                    <td><button type="reset">Limpar</button></td>
-                </tr>  
-                
-            </form>
-        </table>
-        <br /><br />
-        <a href="OcorrenciaServlet">LanÃ§ar ocorrÃªncia</a><br />
-        <a href="index.html">PÃ¡gina Principal</a>
+            <div id="menus">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                </ul>
+                <ul>
+                    <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
+                </ul>
+                <ul>
+                    <li><a href="ProfessorServlet">Cadastro de Professores</a></li>
+                </ul>
+                <ul>
+                    <li><a href="OcorrenciaServlet">Lançar Ocorrência</a></li>
+                </ul>
+                <ul>
+                    <li><a href="BuscaServlet">Buscar Ocorrência</a></li>
+                </ul>
+            </div>
+
+            <!-- Conteudo da PÃ¡gina -->
+            <div id="conteudo">
+                <div id="conteudo_pagina">
+                    <h1>Cadastrar alunos</h1>
+                    <table>
+                        <form action="AlunoServlet" method="post">
+                            <tr>
+                                <td>Nome </td>
+                                <td><input type="text" name="nome" /></td>
+                            </tr>                
+                            <tr>
+                                <td>Grupo </td>
+                                <td>
+                                    <select name="grupo">
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit">Enviar</button> </td>
+                                <td><button type="reset">Limpar</button></td>
+                            </tr>  
+
+                        </form>
+                    </table>
+                    <br /><br />
+                    <a href="OcorrenciaServlet">Lançar ocorrência</a><br />
+                    <a href="index.html">Página Principal</a>
+                </div>
+            </div>
+
+            <!-- RodapÃ© da PÃ¡gina -->
+            <div id="rodape">
+                Produzido por: <a href="mailto:luiz.santos89@yahoo.com.br">Luiz Santos</a> e  
+                <a href="je_barbosaa@hotmail.com">Jéssica Barbosa</a><br />
+            </div>
         </div>
-    </center>
+        </center>
     </body>
 </html>
