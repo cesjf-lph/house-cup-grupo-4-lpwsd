@@ -160,7 +160,15 @@ public class OcorrenciaJpaController implements Serializable {
         }
     }
     
-    
+    public List<Object[]> findOcorrenciaEntitiesByGrupo() {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT SUM(o.pontos) AS pontuacao, o.aluno.grupo FROM Ocorrencia AS o  GROUP BY o.aluno.grupo");
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
     public Ocorrencia findOcorrencia(Long id) {
         EntityManager em = getEntityManager();

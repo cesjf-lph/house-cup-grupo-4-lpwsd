@@ -38,6 +38,7 @@
                                 <option value="${aluno.id}">${aluno.nome} - Grupo: ${aluno.grupo}</option>
                             </c:forEach>
                         </select>
+                        <br />
                         Professor:
                         <select name="professor">
                             <c:forEach var="professor" items="${professores}">
@@ -45,8 +46,10 @@
 
                             </c:forEach>
                         </select>
+                        <br />
                         Nota: <input type="text" size="4" name="nota" />
-                        Motivo: <input type="text" size="20" name="motivo" />
+                        Motivo: <input type="text" size="20" name="motivo" />                        
+                        <br />
                         <button type="submit">Lançar</button>
                         <button type="reset">Limpar</button>
                     </form>

@@ -1,0 +1,1 @@
+SELECT SUM(o.PONTOS), a.GRUPO  FROM aluno AS a INNER JOIN ocorrencia AS o ON o.ALUNO_ID = a.ID GROUP BY a.GRUPO

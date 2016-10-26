@@ -44,7 +44,7 @@ public class AlunoServlet extends HttpServlet {
             throws ServletException, IOException {
         Aluno aluno = new Aluno();
         aluno.setNome(request.getParameter("nome"));
-        aluno.setGrupo(request.getParameter("grupo"));
+        aluno.setGrupo(Long.parseLong(request.getParameter("grupo")));
         AlunoJpaController daoaluno = new AlunoJpaController(ut, emf);
         try {
             daoaluno.create(aluno);

@@ -1,24 +1,6 @@
-
-
-fieldset {
-    border-radius: 8px;
-    padding: 10px;
-    line-height: 2.8em;
-    font-family: "Century Gothic",Times,serif;
+html, body {    
+    font-family: "Century Gothic",Arial;
 }
-
-
-h1,h2,h3,h4,h5,h6 {
-    text-align: center;
-}
-
-table {
-    text-align: left;
-}
-
-body {
-}
-
 a, a:visited {
     text-decoration: none;
     color: darkgreen;
@@ -49,7 +31,6 @@ a:hover {
 #rodape {
     height: 35px;
     width: 810px;
-    font-family: Arial, Sans-Serif;
     font-size: 13pt;
     text-align: center;
     padding-top: 8px;

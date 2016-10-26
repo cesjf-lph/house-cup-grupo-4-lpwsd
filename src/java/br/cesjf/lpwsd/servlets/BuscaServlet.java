@@ -56,6 +56,7 @@ public class BuscaServlet extends HttpServlet {
         ProfessorJpaController daoProfessor = new ProfessorJpaController(ut, emf);
         OcorrenciaJpaController daoOcorrencia = new OcorrenciaJpaController(ut, emf);
         
+        //Filtro por aluno aplicado em busca-ocorrencia.jsp
         if (request.getParameter("filtro_aluno")!=null) {
             Long id_aluno = Long.parseLong(request.getParameter("filtro_aluno"));
             Aluno aluno = daoAluno.findAluno(id_aluno);
@@ -64,6 +65,7 @@ public class BuscaServlet extends HttpServlet {
             request.setAttribute("ocorrencias", ocorrencias);
         }
         
+        //Filtro por professor aplicado em busca-ocorrencia.jsp
         if (request.getParameter("filtro_prof")!=null) {
             Long id_professor = Long.parseLong(request.getParameter("filtro_prof"));
             Professor professor = daoProfessor.findProfessor(id_professor);
@@ -72,10 +74,16 @@ public class BuscaServlet extends HttpServlet {
             request.setAttribute("ocorrencias", ocorrencias);
         }
         
+        
+        /*Filtro por grupo aplicado em busca-ocorrencia.jsp
         if (request.getParameter("filtro_grupo")!=null) {
             Long grupo = Long.parseLong(request.getParameter("filtro_grupo"));
-            
-        }
+            List<Object[]> pontosPorGrupo = daoOcorrencia.findOcorrenciaEntitiesByGrupo(grupo);
+            request.setAttribute("pontos", pontosPorGrupo);
+            System.out.println(pontosPorGrupo);
+            System.out.println(pontosPorGrupo.get(0)[0]);
+            System.out.println(pontosPorGrupo.get(0)[1]);
+        }*/
         
         List<Aluno> alunos = daoAluno.findAlunoEntities();
         request.setAttribute("alunos", alunos);                

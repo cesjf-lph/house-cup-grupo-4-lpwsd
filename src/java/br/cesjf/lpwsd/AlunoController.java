@@ -2,7 +2,6 @@
 package br.cesjf.lpwsd;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +28,7 @@ public class AlunoController extends HttpServlet {
         }
         
         aluno.setNome(request.getParameter("nome"));
-        aluno.setGrupo(request.getParameter("grupo"));
+        aluno.setGrupo(Long.parseLong(request.getParameter("grupo")));
         
         request.setAttribute("aluno", aluno);
         request.getRequestDispatcher("/WEB-INF/detalhes-aluno.jsp").forward(request, response);

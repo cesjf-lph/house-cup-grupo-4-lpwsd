@@ -14,7 +14,7 @@ public class Aluno implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String grupo;
+    private Long grupo;
     private float nota;
 
    
@@ -28,12 +28,12 @@ public class Aluno implements Serializable {
     }
 
    
-    public String getGrupo() {
+    public Long getGrupo() {
         return grupo;
     }
 
     
-    public void setGrupo(String grupo) {
+    public void setGrupo(Long grupo) {
         this.grupo = grupo;
     }
 

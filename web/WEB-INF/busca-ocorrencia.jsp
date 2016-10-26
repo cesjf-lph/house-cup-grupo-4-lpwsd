@@ -31,11 +31,16 @@
                 <ul>
                     <li><a href="BuscaServlet">Buscar Ocorrência</a></li>
                 </ul>
+                <ul>
+                    <li><a href="TotaisPorGrupo">Totais</a></li>
+                </ul>
             </div>
 
             <!-- Conteudo da PÃ¡gina -->
             <div id="conteudo">
                     <h1>Ocorrências: </h1>
+
+                    <h3>Filtros aplicáveis:</h3>
                     <table>
                         <tr>
                             <form action="BuscaServlet" method="post">
@@ -65,24 +70,10 @@
                         </form>
                         </tr>
                         
-                        <tr>
-                        <form action="BuscaServlet" method="post">
-                            <td>Filtrar por grupo:</td>
-                            <td>
-                                <select name="filtro_grupo">
-                                    <option value="1">Grupo 1</option>
-                                    <option value="2">Grupo 2</option>
-                                    <option value="3">Grupo 3</option>
-                                    <option value="4">Grupo 4</option>
-                                </select>
-                            </td>
-                            <td><button type="submit">Filtrar por grupo</button></td>
-                        </form>
-                        </tr>
                     </table>
                     <br />
 
-                    <h1>${aluno_filtrado.nome}</h1>
+                    <h3>Ocorrências:</h3>
 
                     <table border="1">
                         <tr>
