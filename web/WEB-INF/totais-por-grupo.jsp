@@ -10,36 +10,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Busca de Ocorrências</title>
-        <script language="javascript">
-            function mascaraData( campo, e )
-                {
-                    var kC = (document.all) ? event.keyCode : e.keyCode;
-                    var data = campo.value;
-
-                    if( kC!=8 && kC!=46 )
-                    {
-                        if( data.length==2 )
-                        {
-                            campo.value = data += '/';
-                        }
-                        else if( data.length==5 )
-                        {
-                            campo.value = data += '/';
-                        }
-                        else
-                            campo.value = data;
-                    }
-                }
-        </script>
         <link rel="stylesheet" type="text/css" href="estilo.css" />
     </head>
     <body>
         <center>
         <div id="pagina">
             <div id="menus">
-                <ul>
-                    <li><a href="index.html">Principal</a></li>
-                </ul>
                 <ul>
                     <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
                 </ul>
@@ -60,19 +36,82 @@
             <!-- Conteudo da PÃ¡gina -->
             <div id="conteudo">
                 <h1>Totais de pontos por grupo:</h1>
-
                 <table>
                     <form action="TotaisPorGrupo" method="post">
+                        <h3>Filtros aplicáveis: </h3>
                         <tr>
-                            <th>Data Inicial:</th>
-                            <th>Data Final:</th>
+                            <td>
+                                Mês inicial:
+                            </td>
+                            <td>
+                                <select name="mes_inicial">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </td>
+                            <td>
+                                Ano inicial:
+                            </td>
+                            <td>
+                                <select name="ano_inicial">
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </td>
+                            <td>
+                            </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" size="10" maxlength="10" onkeypress="mascaraData( this, event )" />
+                                Mês final:
                             </td>
                             <td>
-                                <input type="text" size="10" maxlength="10"  onkeypress="mascaraData( this, event )" />
+                                <select name="mes_final">
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </td>
+                            <td>
+                                Ano final:
+                            </td>
+                            <td>
+                                <select name="ano_final">
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit">Ok</button>
                             </td>
                         </tr>
                     </form>
@@ -90,8 +129,10 @@
                     </tr>
                     
                         <c:forEach var="pontosPorGrupo" items="${pontos}">
-                        <tr>    <td>${pontosPorGrupo[1]}</td>
-                            <td>${pontosPorGrupo[0]}</td> </tr>
+                            <tr>    
+                                <td>${pontosPorGrupo[1]}</td>
+                                <td>${pontosPorGrupo[0]}</td>
+                            </tr>
                         </c:forEach>
                    
                 </table>

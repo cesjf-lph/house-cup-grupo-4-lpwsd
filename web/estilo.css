@@ -12,7 +12,7 @@ a:hover {
 
 #pagina {
     text-align: justify;
-    width: 860px;
+    width: 830px;
     height: 100%;
     background: white;
     padding-top: 0;
@@ -21,8 +21,9 @@ a:hover {
 
 
 #conteudo {
-    width: 98%;
-    height: 680px;
+    width: 100%;
+    height: 98%;
+    display:block;
     background: powderblue; 
     border: black 1px;
     padding: 10px;
@@ -30,7 +31,7 @@ a:hover {
 
 #rodape {
     height: 35px;
-    width: 810px;
+    width: 765px;
     font-size: 13pt;
     text-align: center;
     padding-top: 8px;
@@ -39,7 +40,7 @@ a:hover {
     border-bottom-left-radius: 10px;
     margin-left: 25px;
     background:green;
-	display: block;
+    display: block;
 }
 
 #rodape a {
@@ -63,7 +64,7 @@ h1 {
     margin:0;
     color: white;    
     background: darkred;
-    width: 100%;
+    width: 102%;
     height: 30px;
     border:solid 1px darkred;
     clear:both;

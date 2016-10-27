@@ -7,9 +7,13 @@ package br.cesjf.lpwsd.servlets;
 
 import br.cesjf.lpwsd.dao.OcorrenciaJpaController;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.servlet.ServletException;
@@ -45,15 +49,6 @@ public class TotaisPorGrupo extends HttpServlet {
             List<Object[]> pontosPorGrupo = daoOcorrencia.findOcorrenciaEntitiesByGrupo();
             request.setAttribute("pontos", pontosPorGrupo);
             
-            System.out.println(pontosPorGrupo.get(0)[0]);             
-            System.out.println(pontosPorGrupo.get(0)[1]); 
-            System.out.println(pontosPorGrupo.get(1)[0]); 
-            System.out.println(pontosPorGrupo.get(1)[1]); 
-            System.out.println(pontosPorGrupo.get(2)[0]); 
-            System.out.println(pontosPorGrupo.get(2)[1]); 
-            System.out.println(pontosPorGrupo.get(3)[0]); 
-            System.out.println(pontosPorGrupo.get(3)[1]);
-            
             request.getRequestDispatcher("/WEB-INF/totais-por-grupo.jsp").forward(request, response);
         
     }
@@ -63,6 +58,40 @@ public class TotaisPorGrupo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
+        OcorrenciaJpaController daoOcorrencia = new OcorrenciaJpaController(ut, emf);
+        String ano = request.getParameter("ano_inicial");
+        String mes = request.getParameter("mes_inicial");
+        String dataInicial = ano + "-"+ mes + "-" + "01";
+        
+        String ano1 = request.getParameter("ano_final");
+        String mes1 = request.getParameter("mes_final");
+        String dataFinal = ano1 + "-"+ mes1 + "-" + "01";
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        Date data1 = null;
+        try {
+            data1 = sdf.parse(dataInicial);
+        } catch (ParseException ex) {
+            Logger.getLogger(TotaisPorGrupo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        Date data2 = null;
+        try {
+            data2 = sdf.parse(dataFinal);
+        } catch (ParseException ex) {
+            Logger.getLogger(TotaisPorGrupo.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+       
+        System.out.println("Data inicial: " + data1);
+        System.out.println("Data final: " + data2);
+        
+        List<Object[]> pontosPorGrupo = daoOcorrencia.findOcorrenciaEntitiesByGrupoPeriodo(data1, data2);
+        request.setAttribute("pontos", pontosPorGrupo);
+
+        request.getRequestDispatcher("/WEB-INF/totais-por-grupo.jsp").forward(request, response);
     }
 
     

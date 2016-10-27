@@ -11,9 +11,6 @@
         <div id="pagina">
             <div id="menus">
                 <ul>
-                    <li><a href="index.html">Principal</a></li>
-                </ul>
-                <ul>
                     <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
                 </ul>
                 <ul>
@@ -24,6 +21,9 @@
                 </ul>
                 <ul>
                     <li><a href="BuscaServlet">Buscar Ocorrência</a></li>
+                </ul>
+                <ul>
+                    <li><a href="TotaisPorGrupo">Totais</a></li>
                 </ul>
             </div>
 

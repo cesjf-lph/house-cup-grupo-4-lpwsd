@@ -17,9 +17,6 @@
         <div id="pagina">
             <div id="menus">
                 <ul>
-                    <li><a href="index.html">Principal</a></li>
-                </ul>
-                <ul>
                     <li><a href="AlunoServlet">Cadastro de Alunos</a></li>
                 </ul>
                 <ul>

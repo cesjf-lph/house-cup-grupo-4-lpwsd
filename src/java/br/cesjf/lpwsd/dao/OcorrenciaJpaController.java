@@ -11,11 +11,13 @@ import br.cesjf.lpwsd.Professor;
 import br.cesjf.lpwsd.dao.exceptions.NonexistentEntityException;
 import br.cesjf.lpwsd.dao.exceptions.RollbackFailureException;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.UserTransaction;
@@ -169,6 +171,19 @@ public class OcorrenciaJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Object[]> findOcorrenciaEntitiesByGrupoPeriodo(Date dataInicio, Date dataFim) {
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT SUM(o.pontos) AS pontuacao, o.aluno.grupo FROM Ocorrencia AS o WHERE o.data BETWEEN :data1 AND :data2 GROUP BY o.aluno.grupo");
+            q.setParameter("data1", dataInicio);
+            q.setParameter("data2", dataFim);
+            return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
 
     public Ocorrencia findOcorrencia(Long id) {
         EntityManager em = getEntityManager();
@@ -191,6 +206,5 @@ public class OcorrenciaJpaController implements Serializable {
             em.close();
         }
     }
-    
     
 }
