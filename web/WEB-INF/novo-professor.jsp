@@ -42,8 +42,7 @@
                             </tr>  
 
                         </form>
-                    </table><br />
-                    <a href="index.html">Página Principal</a>
+                    </table>
                 </div>
             </div>
 

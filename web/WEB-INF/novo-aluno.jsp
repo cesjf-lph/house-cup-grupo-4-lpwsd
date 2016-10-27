@@ -53,9 +53,6 @@
 
                         </form>
                     </table>
-                    <br /><br />
-                    <a href="OcorrenciaServlet">Lançar ocorrência</a><br />
-                    <a href="index.html">Página Principal</a>
                 </div>
             </div>
 

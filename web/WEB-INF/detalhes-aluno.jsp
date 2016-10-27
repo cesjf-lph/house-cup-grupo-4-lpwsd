@@ -34,7 +34,6 @@
                     <h2>Nota: ${aluno.nota}</h2>
                     <br /><br />
                     <a href="novo-aluno.jsp">Cadastrar outro aluno</a><br />
-                    <a href="index.html">Página Principal</a>
                 </div>
             </div>
 

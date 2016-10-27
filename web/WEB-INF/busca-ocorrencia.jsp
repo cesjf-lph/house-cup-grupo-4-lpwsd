@@ -89,8 +89,7 @@
                                 <td>${ocorrencia.data}</td>
                             </tr>
                         </c:forEach>
-                    </table><br />
-                    <a href="index.html">Página Principal</a>
+                    </table>
                 </div>
             </div>
 

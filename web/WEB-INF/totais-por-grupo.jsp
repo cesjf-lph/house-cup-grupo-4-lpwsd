@@ -136,8 +136,6 @@
                         </c:forEach>
                    
                 </table>
-                <br /><br />
-                    <a href="index.html">Página Principal</a>
                 </div>
             </div>
 

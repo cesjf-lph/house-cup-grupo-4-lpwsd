@@ -31,30 +31,43 @@
             <div id="conteudo">
                 <div id="conteudo_pagina">
                     <h1>Lançar uma nova ocorrência:</h1>
+                    <table>
                     <form action="OcorrenciaServlet" method="post">
-                        Aluno: 
-                        <select name="aluno">            
-                            <c:forEach var="aluno" items="${alunos}">
-                                <option value="${aluno.id}">${aluno.nome} - Grupo: ${aluno.grupo}</option>
-                            </c:forEach>
-                        </select>
-                        <br />
-                        Professor:
-                        <select name="professor">
-                            <c:forEach var="professor" items="${professores}">
-                                <option value="${professor.id}">${professor.nome}</option>
+                        <tr>
+                            <td>Aluno: </td>
+                            <td>
+                                <select name="aluno">            
+                                    <c:forEach var="aluno" items="${alunos}">
+                                        <option value="${aluno.id}">${aluno.nome} - Grupo: ${aluno.grupo}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Professor:</td>
+                            <td>
+                                <select name="professor">
+                                    <c:forEach var="professor" items="${professores}">
+                                        <option value="${professor.id}">${professor.nome}</option>
 
-                            </c:forEach>
-                        </select>
-                        <br />
-                        Nota: <input type="text" size="4" name="nota" />
-                        Motivo: <input type="text" size="20" name="motivo" />                        
-                        <br />
-                        <button type="submit">Lançar</button>
-                        <button type="reset">Limpar</button>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nota: </td>
+                            <td><input type="text" size="4" name="nota" /></td>
+                        </tr>
+                        <tr>
+                            <td>Motivo: </td>
+                            <td><input type="text" size="20" name="motivo" />  </td>                      
+                        </tr>
+                        <tr>
+                            <td><button type="submit">Lançar</button></td>
+                            <td><button type="reset">Limpar</button></td>
+                        </tr>
                     </form>
-                    <br /><br />
-                    <a href="index.html">Página Principal</a>
+                    </table>
                 </div>
             </div>
 

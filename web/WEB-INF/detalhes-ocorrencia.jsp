@@ -36,7 +36,6 @@
 
                 </p><br /><br />
                 <a href="OcorrenciaServlet">Nova ocorrência</a><br />
-                <a href="index.html">Página Principal</a>
                 </div>
                 </div>
             </div>
